@@ -11,12 +11,12 @@ import Button from '../Button';
 import iconLogin from './images/icon-user.svg';
 import iconPassword from './images/icon-password.svg';
 
-import noSpaces from '../../../utils/noSpaces';
+import removeAllSpaces from '../../../utils/removeAllSpaces';
 
 
 class AuthForm extends Component {
   getCorrectStr = (str, func) => {
-    const correctStr = noSpaces(str);
+    const correctStr = removeAllSpaces(str);
     func(correctStr);
   }
 
@@ -41,7 +41,8 @@ class AuthForm extends Component {
   }
 
   callFunc = () => {
-    const { login, password } = this.props;
+    const { auth } = this.props;
+    const { login, password } = auth;
     const { onSubmit } = this.props;
     const resultCheckEmpty = this.checkEmptyFields(login, password);
     if (!resultCheckEmpty) {
@@ -55,9 +56,9 @@ class AuthForm extends Component {
       classes,
       title,
       text,
+      errors,
       updateLogin,
       updatePassword,
-      errors,
     } = this.props;
 
     return (
@@ -71,7 +72,7 @@ class AuthForm extends Component {
               placeholder="Введите имя пользователя"
               onChange={writingText => this.getCorrectStr(writingText, updateLogin)}
               value={auth.login}
-              hasError={errors.errorFieldLogin}
+              hasError={errors.hasErrorLogin}
             />
           </div>
 
@@ -83,12 +84,12 @@ class AuthForm extends Component {
               maxLength="20"
               placeholder="Введите пароль"
               onChange={writingText => this.getCorrectStr(writingText, updatePassword)}
-              hasError={errors.errorFieldPassword}
+              hasError={errors.hasErrorPassword}
             />
           </div>
 
-          {errors.errorFieldLogin ? <ErrorBox text={errors.errorTextL} /> : null}
-          {errors.errorFieldPassword ? <ErrorBox text={errors.errorTextP} /> : null}
+          {errors.hasErrorLogin ? <ErrorBox text={errors.errorTextLogin} /> : null}
+          {errors.hasErrorPassword ? <ErrorBox text={errors.errorTextPassword} /> : null}
           <Button
             buttonText={text}
             width="80%"

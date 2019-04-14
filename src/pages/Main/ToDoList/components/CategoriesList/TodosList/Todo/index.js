@@ -5,7 +5,7 @@ import cn from 'classnames';
 import colors from '../../../../../../../styles/colors';
 
 import NameBoxes from './NameBoxes';
-import Checkbox from '../../../../../../../common/components/Checkbox';
+import Checkbox from './Checkbox';
 import Value from './Value';
 import Button from '../../../../../../../common/components/Button';
 import IconEdit from '../../../../../../../common/components/Button/image/IconEdit';
@@ -32,7 +32,7 @@ class Todo extends Component {
     return (
       <div className={resClass}>
         <Checkbox
-          clic={clickSector}
+          onClick={clickSector}
           completed={completed}
         />
         <NameBoxes

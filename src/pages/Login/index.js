@@ -8,22 +8,31 @@ import TextAndLink from '../../common/components/TextAndLink';
 
 class Login extends Component {
   handleSubmit = async (login, password) => {
-    const sessionId = await apiService.auth.login(login, password);
-    global.localStorage.setItem('sessionId', sessionId);
-    history.push('/main');
+    try {
+      const sessionId = await apiService.auth.login(login, password);
+      global.localStorage.setItem('sessionId', sessionId);
+      history.push('/main');
+    } catch (error) {
+      if (error.response.data.code === 'USER_NOT_FOUND') {
+        global.alert('Пользователь не зарегистрирован!');
+      }
+      if (error.response.data.code === 'WRONG_PASSWORD') {
+        global.alert('Введен неверный пароль!');
+      }
+    }
   }
 
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.authPage}>
+      <div className={classes.container}>
         <AuthForm
           title="Авторизация"
           text="Войти"
           onSubmit={this.handleSubmit}
         />
         <TextAndLink
-          textBottomPart="Нет аккаунта?"
+          text="Нет аккаунта?"
           adressLink="/register"
           textLink="Регистрация"
         />
@@ -33,7 +42,7 @@ class Login extends Component {
 }
 
 const styles = {
-  authPage: {
+  container: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

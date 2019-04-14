@@ -9,16 +9,10 @@ import colors from '../../../../../styles/colors';
 import Button from '../../../../../common/components/Button';
 import IconCancel from '../../../../../common/components/Button/image/IconCancel';
 import Input from '../../../../../common/components/Input';
-import CategorySelect from '../../../../../common/components/CategorySelect';
+import CategorySelect from './CategorySelect';
 import deleteLastSpaceInStr from '../../../../../utils/deleteLastSpaceInStr';
 import IconCheckMark from '../../../../../common/components/Button/image/IconCheckMark';
 
-// import removeSpaces from '../../../../../utils/removeSpaces';
-
-// onClickConfirm - клик "сохранить", подтверждение
-// onClickCancel - клик отмена
-// initialSectorData - начальные данные, когда редактируем, данные сектора
-// formTitle - название окна - добавление или редактирование элемента
 
 class SectorEditForm extends Component {
   changeText = (text) => {

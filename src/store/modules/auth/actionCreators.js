@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes';
 
 export const changeLogin = newValue => ({
-  type: actionTypes.CHANGE_LOGIN, // имя действия или экшена, обязат.поле
-  payload: newValue, // данные действия,необязат. поле
+  type: actionTypes.CHANGE_LOGIN,
+  payload: newValue,
 });
 
 export const changePassword = newValue => ({
@@ -10,12 +10,12 @@ export const changePassword = newValue => ({
   payload: newValue,
 });
 
-export const assignErrorLogin = value => ({ // присвоить ошибку полю: логин
+export const assignErrorLogin = value => ({
   type: actionTypes.ERROR_LOGIN,
   payload: value,
 });
 
-export const assignErrorPassword = value => ({ // присвоить ошибку полю: пароль
+export const assignErrorPassword = value => ({
   type: actionTypes.ERROR_PASSWORD,
   payload: value,
 });

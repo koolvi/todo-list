@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreatorsCurrentList from '../../../../store/modules/lists/current/actionCreators';
 import * as actionCreatorsMainList from '../../../../store/modules/lists/main/actionCreators';
 
-import FormInputAndButtons from './common/EditItemForm';
+import EditItemForm from './common/EditItemForm';
 import MenuSection from './common/MenuSection';
 import apiService from '../../../../utils/services/api';
 import deleteLastSpaceInStr from '../../../../utils/deleteLastSpaceInStr';
@@ -66,7 +66,7 @@ class ListsSection extends Component {
         onSelect={item => onSetSelectedList(item)}
         onCreateNew={() => onSetCurrentListData({ id: null, name: '' })}
         EditItemComp={(
-          <FormInputAndButtons
+          <EditItemForm
             name={!currentListData ? '' : currentListData.name}
             onClickCancel={() => onSetCurrentListData(null)}
             placeholder="Введите название"

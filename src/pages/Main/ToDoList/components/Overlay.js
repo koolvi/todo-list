@@ -14,9 +14,6 @@ class Overlay extends Component {
 
     return open ? (
       <div className={classnames(classes.container, containerClass)}>
-        {/* во втором аргументе видимо передаем overlayContainer */}
-        {/* если один аргумент: */}
-        {/* <div className={classes.container}> */}
         {children}
       </div>
     ) : null;

@@ -32,19 +32,17 @@ class TodosList extends Component {
           <LineGradient type="miniRight" otherClass={classes.miniRightLine} />
         </div>
 
-        <div className="sectorsThisCategory">
-          {content.map(item => (
-            <Todo
-              key={id++}
-              text={item.text}
-              price={item.price}
-              clicDel={() => clicDel(item)}
-              completed={item.completed}
-              clickSector={() => clickSector(item)}
-              clicEdit={() => clicEdit(item)}
-            />))
-          }
-        </div>
+        {content.map(item => (
+          <Todo
+            key={id++}
+            text={item.text}
+            price={item.price}
+            clicDel={() => clicDel(item)}
+            completed={item.completed}
+            clickSector={() => clickSector(item)}
+            clicEdit={() => clicEdit(item)}
+          />))
+        }
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Checkbox from '@material-ui/core/Checkbox';
-import colors from '../../styles/colors';
+import CheckboxMUI from '@material-ui/core/Checkbox';
+import colors from '../../../../../../../styles/colors';
 
 const styles = {
   root: {
@@ -13,13 +13,13 @@ const styles = {
   checked: {},
 };
 
-class CheckboxLabels extends React.Component {
+class Checkbox extends React.Component {
   render() {
-    const { classes, clic, completed } = this.props;
+    const { classes, onClick, completed } = this.props;
 
     return (
-      <Checkbox
-        onChange={clic}
+      <CheckboxMUI
+        onChange={onClick}
         classes={{
           root: classes.root,
           checked: classes.checked,
@@ -30,4 +30,4 @@ class CheckboxLabels extends React.Component {
   }
 }
 
-export default withStyles(styles)(CheckboxLabels);
+export default withStyles(styles)(Checkbox);

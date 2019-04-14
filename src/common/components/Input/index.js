@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import colors from '../../../styles/colors';
 
-import SvgIcon from '../SvgIcon';
+import SvgIcon from './SvgIcon';
 import TextInput from './TextInput';
 import NumInput from './NumInput';
 

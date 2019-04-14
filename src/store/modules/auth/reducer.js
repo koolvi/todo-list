@@ -1,8 +1,6 @@
 import { mergeDeepRight } from 'ramda';
 import * as actionTypes from './actionTypes';
 
-// при запуске программы, редакс начинает свою работу с запуска экспортируемой функции
-// изначальное состояние хранилища, объект
 const initialState = {
   login: '',
   password: '',

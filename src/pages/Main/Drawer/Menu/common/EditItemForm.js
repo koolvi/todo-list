@@ -37,7 +37,7 @@ class EditItemForm extends Component {
 
     return (
       <div className={classes.container}>
-        <div className={classes.smallContainerForIonAndInput}>
+        <div className={classes.containerInput}>
           <Input
             inputType="text"
             maxLength="20"
@@ -68,7 +68,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
   },
-  smallContainerForIonAndInput: {
+  containerInput: {
     fontSize: '15px',
     fontFamily: 'sans-serif',
     height: '32px',

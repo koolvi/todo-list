@@ -6,8 +6,8 @@ class RoundButton extends Component {
   render() {
     const {
       classes,
-      onClick,
       ButtonImg,
+      onClick,
       ...rest
     } = this.props;
 
