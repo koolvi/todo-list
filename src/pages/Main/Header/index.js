@@ -25,7 +25,6 @@ const styles = {
 };
 
 const onClickLogout = async () => {
-  // const sessionId = global.localStorage.getItem('sessionId');
   const response = await apiService.auth.logout();
   if (response) {
     global.localStorage.removeItem('sessionId');
@@ -33,7 +32,7 @@ const onClickLogout = async () => {
   }
 };
 
-function ButtonAppBar(props) {
+function Header(props) {
   const { classes, onClickBtn } = props;
   return (
     <AppBar
@@ -58,13 +57,6 @@ function ButtonAppBar(props) {
           ToDoList
         </Typography>
 
-        <iframe
-          src="//www.radiorecord.ru/player/tab10-mini/"
-          frameBorder="0"
-          title="RecordMini"
-          style={{ width: '222px', height: '59px', overflow: 'hidden' }}
-        />
-
         <Button
           color="inherit"
           onClick={onClickLogout}
@@ -76,4 +68,4 @@ function ButtonAppBar(props) {
   );
 }
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(Header);

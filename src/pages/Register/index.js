@@ -8,22 +8,28 @@ import TextAndLink from '../../common/components/TextAndLink';
 
 class Register extends Component {
   handleSubmit = async (login, password) => {
-    const sessionId = await apiService.auth.register(login, password);
-    global.localStorage.setItem('sessionId', sessionId);
-    history.push('/main');
+    try {
+      const sessionId = await apiService.auth.register(login, password);
+      global.localStorage.setItem('sessionId', sessionId);
+      history.push('/main');
+    } catch (error) {
+      if (error.response.data.code === 'USER_EXISTS') {
+        global.alert('Пользователь уже зарегистрирован!');
+      }
+    }
   }
 
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.authPage}>
+      <div className={classes.container}>
         <AuthForm
           title="Регистрация"
           text="Зарегистрироваться"
           onSubmit={this.handleSubmit}
         />
         <TextAndLink
-          textBottomPart="Есть аккаунт?"
+          text="Есть аккаунт?"
           adressLink="/login"
           textLink="Выполнить вход"
         />
@@ -33,7 +39,7 @@ class Register extends Component {
 }
 
 const styles = {
-  authPage: {
+  container: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

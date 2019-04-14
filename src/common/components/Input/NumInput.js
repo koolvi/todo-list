@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import noSpaces from '../../../utils/noSpaces';
+import removeAllSpaces from '../../../utils/removeAllSpaces';
 
 
 class NumInput extends Component {
@@ -10,7 +10,7 @@ class NumInput extends Component {
       <input
         className={classes.inputComponent}
         onChange={(e) => {
-          const correctStr = noSpaces(e.target.value);
+          const correctStr = removeAllSpaces(e.target.value);
           const last = correctStr.slice(-1);
           if (!isNaN(last)) {
             onChange(correctStr);
@@ -21,11 +21,6 @@ class NumInput extends Component {
     );
   }
 }
-
-/* === убрать стрелки у ИНПУТА для ввода новой суммы, только firefox === */
-// input[type='number'] {
-//   -moz-appearance: textfield;
-// }
 
 const styles = {
   inputComponent: {

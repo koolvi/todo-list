@@ -11,7 +11,7 @@ import Button from '../../../common/components/Button';
 import LineGradient from '../../../common/components/LineGradient';
 import Summary from './components/Summary/index';
 
-import Overlay from '../../../common/components/Overlay';
+import Overlay from './components/Overlay';
 import SectorEditForm from './components/SectorEditForm';
 import IconNewItem from '../../../common/components/Button/image/IconNewItem';
 
@@ -22,7 +22,6 @@ class ToDoList extends Component {
   }
 
   componentWillReceiveProps = async (newProps) => {
-    // вызывается когда меняются пропсы, получает новые значения пропсов. видит две версии пропсов
     const { currentList } = this.props;
     if (newProps.currentList._id !== currentList._id) {
       this.updateViewList(newProps.currentList._id);

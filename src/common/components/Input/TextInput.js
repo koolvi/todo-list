@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import colors from '../../../styles/colors';
-import removeSpaces from '../../../utils/removeSpaces';
+import removeUnnecessarySpaces from '../../../utils/removeUnnecessarySpaces';
 
 
 class TextInput extends Component {
-  getCorrectText = (text) => {
-    // console.log(text);
-    const textWithoutSpaces = removeSpaces(text);
-    // const lastSimbol = textWithoutSpaces.length - 1;
-    // if ((textWithoutSpaces[lastSimbol] === ' ') && (textWithoutSpaces[lastSimbol + 1] === undefined)) {
-    //   console.log('1235');
-    //   const correctStr = textWithoutSpaces.substr(0, lastSimbol);
-    //   return correctStr;
-    // }
-    return textWithoutSpaces;
-  };
-
   render() {
     const { classes, onChange, ...rest } = this.props;
 
@@ -24,9 +12,8 @@ class TextInput extends Component {
       <input
         className={classes.inputComponent}
         onChange={(e) => {
-          const goodText = this.getCorrectText(e.target.value);
-          // onChange(e.target.value);
-          onChange(goodText);
+          const textWithoutSpaces = removeUnnecessarySpaces(e.target.value);
+          onChange(textWithoutSpaces);
         }}
         {...rest}
       />

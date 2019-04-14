@@ -20,7 +20,7 @@ class FormContainer extends Component {
           </div>
         </div>
 
-        <div className={classes.main}>
+        <div className={classes.content}>
           {children}
         </div>
       </div>
@@ -51,7 +51,7 @@ const styles = {
     letterSpacing: '3px',
     margin: '15px 0px',
   },
-  main: {
+  content: {
     width: '100%',
   },
 };

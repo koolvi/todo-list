@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
-class BottomPart extends Component {
+class TextAndLink extends Component {
   render() {
     const {
-      textBottomPart,
+      text,
       adressLink,
       textLink,
       classes,
@@ -14,7 +14,7 @@ class BottomPart extends Component {
     return (
       <div className={classes.container}>
         <p className={classes.text}>
-          {textBottomPart}
+          {text}
         </p>
         <Link className={classes.link} to={adressLink}>
           {textLink}
@@ -44,4 +44,4 @@ const styles = {
   },
 };
 
-export default withStyles(styles)(BottomPart);
+export default withStyles(styles)(TextAndLink);

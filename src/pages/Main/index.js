@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { connect } from 'react-redux';
 
-import ButtonAppBar from './ButtonAppBar';
+import Header from './Header';
 import Drawer from './Drawer';
 import ToDoList from './ToDoList';
 
@@ -26,15 +26,15 @@ class Main extends Component {
     const { classes, currentList } = this.props;
 
     return (
-      <div className={classes.main}>
-        <ButtonAppBar onClickBtn={this.drawerOpen} />
+      <div className={classes.container}>
+        <Header onClickBtn={this.drawerOpen} />
         <Drawer
           open={drawerOpen}
           ModalProps={{
             onBackdropClick: this.drawerClose,
           }}
         />
-        <div className={classes.allToDoLists}>
+        <div className={classes.content}>
           {(currentList === null) ? null : <ToDoList />}
         </div>
       </div>
@@ -43,10 +43,10 @@ class Main extends Component {
 }
 
 const styles = {
-  main: {
+  container: {
     width: '100%',
   },
-  allToDoLists: {
+  content: {
     height: '85%',
     minWidth: '465px',
     display: 'flex',
@@ -56,11 +56,9 @@ const styles = {
   },
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentList: state.lists.main.selectedList,
-  };
-};
+const mapStateToProps = state => ({
+  currentList: state.lists.main.selectedList,
+});
 
 const styled = withStyles(styles)(Main);
 export default connect(mapStateToProps)(styled);

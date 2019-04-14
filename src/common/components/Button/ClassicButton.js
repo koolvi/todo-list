@@ -18,9 +18,6 @@ const styles = theme => ({
       background: colors.hover,
     },
   },
-  input: {
-    display: 'none',
-  },
   text: {
     marginTop: 1,
     marginLeft: 5,
@@ -42,9 +39,9 @@ class ClassicButton extends Component {
       classes,
       width,
       height,
-      onClick,
       buttonText,
       ButtonImg,
+      onClick,
       ...rest
     } = this.props;
 

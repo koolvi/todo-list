@@ -23,9 +23,7 @@ const styles = theme => ({
     height: '70px',
     display: 'flex',
     justifyContent: 'center',
-    // marginTop: '10px',
     marginBottom: '10px',
-    // height: '30px',
     alignItems: 'flex-end',
   },
   textForNewCategory: {
@@ -38,16 +36,17 @@ const styles = theme => ({
   },
 });
 
-class SimpleSelect extends React.Component {
+class CategorySelect extends React.Component {
   renderCategoryInSelect = () => {
     const { allCategory } = this.props;
-    return allCategory.map((item) => {
-      return (
-        <MenuItem value={item._id}>
-          {item.name}
-        </MenuItem>
-      );
-    });
+    return allCategory.map(item => (
+      <MenuItem
+        key={item._id}
+        value={item._id}
+      >
+        {item.name}
+      </MenuItem>
+    ));
   };
 
   render() {
@@ -81,16 +80,9 @@ class SimpleSelect extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    allCategory: state.categories.main.categories,
-  };
-};
+const mapStateToProps = state => ({
+  allCategory: state.categories.main.categories,
+});
 
-const mapDispatchToProps = {
-  // updateField: actionCreators.updateField,
-  // reset: actionCreators.reset,
-};
-
-const styled = withStyles(styles)(SimpleSelect);
-export default connect(mapStateToProps, mapDispatchToProps)(styled);
+const styled = withStyles(styles)(CategorySelect);
+export default connect(mapStateToProps, null)(styled);

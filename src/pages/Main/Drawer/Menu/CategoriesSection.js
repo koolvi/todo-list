@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreatorsMainCategories from '../../../../store/modules/categories/main/actionCreators';
 import * as actionCreatorsCurrentCategory from '../../../../store/modules/categories/current/actionCreators';
 
-import FormInputAndButtons from './common/EditItemForm';
+import EditItemForm from './common/EditItemForm';
 import MenuSection from './common/MenuSection';
 import apiService from '../../../../utils/services/api';
 import deleteLastSpaceInStr from '../../../../utils/deleteLastSpaceInStr';
@@ -62,7 +62,7 @@ class CategoriesSection extends Component {
         onDelete={category => this.handleCategoryDelete(category)}
         onCreateNew={() => onSetCurrentCategoryData({ id: null, name: '' })}
         EditItemComp={(
-          <FormInputAndButtons
+          <EditItemForm
             name={!currentCategoryData ? '' : currentCategoryData.name}
             onClickCancel={() => onSetCurrentCategoryData(null)}
             placeholder="Введите название"
