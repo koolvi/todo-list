@@ -2,8 +2,8 @@ import { mergeDeepRight } from 'ramda';
 import * as actionTypes from './actionTypes';
 
 const initialState = {
-  login: '',
-  password: '',
+  login: 'testUser',
+  password: '12345',
   errors: {
     hasErrorLogin: false,
     hasErrorPassword: false,
